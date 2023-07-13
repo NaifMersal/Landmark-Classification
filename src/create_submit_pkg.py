@@ -1,8 +1,7 @@
 import datetime
 import glob
 import subprocess
-import tarfile
-
+import zipfile
 
 def create_submit_pkg():
 
@@ -22,12 +21,16 @@ def create_submit_pkg():
     html_files = glob.glob("*.htm*")
 
     now = datetime.datetime.today().isoformat(timespec="minutes").replace(":", "h")+"m"
-    outfile = f"submission_{now}.tar.gz"
+    outfile = f"submission_{now}.zip"
     print(f"Adding files to {outfile}")
-    with tarfile.open(outfile, "w:gz") as tar:
+   
+    with zipfile.ZipFile(outfile, 'w') as zip:
         for name in (src_files + notebooks + html_files):
             print(name)
-            tar.add(name)
+            zip.write(name)
+
+    
+
 
     print("")
     msg = f"Done. Please submit the file {outfile}"
