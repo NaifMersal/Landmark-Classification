@@ -4,3 +4,6 @@
 /static_images
 /*.html
 /*.zip
+/.ipynb_checkpoints
+/.pytest_cache
+/src/__pycache__
