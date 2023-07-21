@@ -1,7 +1,6 @@
 /checkpoints
 /landmark_images
 /runs
-/static_images
 /*.html
 /*.zip
 /.ipynb_checkpoints
